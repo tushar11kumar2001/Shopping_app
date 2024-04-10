@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import getProducts from '../utils/api-client'
+import React, { useEffect} from 'react'
+
 import Card from '../components/Card';
 import ShimmerCard from '../components/ShimmarUI';
+import {useSelector} from 'react-redux';
 
 const Home = () => {
-    const [products,setProducts] = useState([]);
-    useEffect(()=>{
-     getProducts().then((data)=>{setProducts(data)});
 
-    },[])
+  const state = useSelector(store => store.product);
+
+
   
-  if( products.length === 0 ) return <ShimmerCard/>
+  if(state.loading) return <ShimmerCard/>
   return (
     <div className='grid grid-cols-1 justify-items-center gap-y-14 relative top-24 sm:grid-cols-4'>
-        {products.map((data)=>{
+        {state.product.map((data)=>{
            return  <Card key={data?.id} data={data}/>
         })}
        
