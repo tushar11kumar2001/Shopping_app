@@ -1,8 +1,8 @@
-import getProducts from "../utils/api-client"
+import usegetProducts from "../hooks/useapi"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
 export const getProductThunk = createAsyncThunk("/getProduct", async ()=>{
-    return  await getProducts();
+    return  await usegetProducts();
  
 })
 const productSlice = createSlice({

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
-import { useGetRoutes } from '../utils/usegetRoutes'
+import { useGetRoutes } from '../hooks/usegetRoutes'
 
 const DynamicRoutes = () => {
  const routes = useRoutes(useGetRoutes());
